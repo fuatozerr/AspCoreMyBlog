@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using MyBlog.WebUI.Middlewares;
 
 namespace MyBlog.WebUI
 {
@@ -26,7 +27,9 @@ namespace MyBlog.WebUI
                 app.UseDeveloperExceptionPage();
             }
             app.UseStatusCodePages();
+
             app.UseStaticFiles();
+            app.CustomStaticFiles();
             app.UseMvc(
                 routes =>
                 {
